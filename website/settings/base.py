@@ -11,7 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 load_dotenv()
 
 
-SECRET_KEY = 'django-insecure--nxm0r8_(m!5cp&eihh^1^n)ru$z$xj9-wf%6d)1crnbw7bf*z'
+# SECRET_KEY = 'django-insecure--nxm0r8_(m!5cp&eihh^1^n]ru$z$xj9-wf%6d]1crnbw7bf*z'
+
+SECRET_KEY = os.environ['SECRET_KEY']
 
 
 DEBUG = False
@@ -60,28 +62,29 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'website.wsgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.getenv('PGDATABASE'),
-#         'USER': os.getenv('PGUSER'),
-#         'PASSWORD': os.getenv('PGPASSWORD'),
-#         'HOST': os.getenv('PGHOST'),
-#         'PORT': os.getenv('PGPORT')
-#     }
-# }
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'GNCaAFVN3URQcckAcd3V',
-        'HOST': 'containers-us-west-160.railway.app',
-        'PORT': '6319'
+        'NAME': os.environ['PGDATABASE'],
+        'USER': os.environ['PGUSER'],
+        'PASSWORD': os.environ['PGPASSWORD'],
+        'HOST': os.environ['PGHOST'],
+        'PORT': os.environ['PGPORT']
     }
 }
+
+print('DATABASE ENGINE', os.environ['PGDATABASE'])
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'GNCaAFVN3URQcckAcd3V',
+#         'HOST': 'containers-us-west-160.railway.app',
+#         'PORT': '6319'
+#     }
+# }
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -117,19 +120,19 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-# AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-# AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
-# AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME')
-# AWS_DEFAULT_ACL = os.getenv('AWS_DEFAULT_ACL')
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
+AWS_DEFAULT_ACL = os.environ['AWS_DEFAULT_ACL']
 
-# DEFAULT_FILE_STORAGE = os.getenv('DEFAULT_FILE_STORAGE')
+DEFAULT_FILE_STORAGE = os.environ['DEFAULT_FILE_STORAGE']
 
-AWS_ACCESS_KEY_ID = 'AKIAXPZBQGU33FLEYPTR'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'book-info'
-AWS_S3_REGION_NAME = 'us-east-1'
-AWS_DEFAULT_ACL = 'public-read'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = 'AKIAXPZBQGU33FLEYPTR'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'book-info'
+# AWS_S3_REGION_NAME = 'us-east-1'
+# AWS_DEFAULT_ACL = 'public-read'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
