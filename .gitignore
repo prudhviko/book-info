@@ -1,0 +1,30 @@
+# Django project files
+*.pyc
+*.pyo
+__pycache__/
+*.sqlite3
+db.sqlite3
+venv/
+
+# Development/IDE-specific files
+*.pydevproject
+*.pyc
+.vscode/
+.idea/
+*.swo
+*.swp
+*~
+*.bak
+*.tmp
+
+# Static and media files
+
+
+# Environment and deployment files
+*.env
+*.log
+*.env.*
+*.db
+
+# Compiled Python bytecode (if using Cython)
+*.so
