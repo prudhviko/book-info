@@ -73,7 +73,7 @@ DATABASES = {
     }
 }
 
-print('DATABASE ENGINE', os.environ['PGDATABASE'])
+print('DATABASE PORT', os.environ['PGPORT'])
 
 # DATABASES = {
 #     'default': {
