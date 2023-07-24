@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import request
-from .models import Book
+from .models import Book, Quote
 from django.utils.text import slugify
 
 
@@ -11,7 +11,9 @@ def home(request):
 
 
 def quotes(request):
-    return render(request, 'quotes.html')
+    quotes = Quote.objects.all()
+    context = {'quotes': quotes}
+    return render(request, 'quotes.html', context)
 
 
 def about(request):
