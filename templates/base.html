@@ -4,7 +4,7 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8" />
-    <title>Logbook - Homepage</title>
+    <title>Book Info</title>
 
     <!-- mobile responsive meta -->
     <meta
@@ -60,9 +60,8 @@
         <nav class="navbar navbar-expand-lg navbar-white">
           <a class="navbar-brand" href="index.html">
             <img
-              class="img-fluid"
-              width="150px"
-              src="{% static 'images/logo.png' %}"
+              class="img-fluid logo"
+              src="{% static 'images/logo.svg' %}"
               alt="LogBook"
             />
           </a>
@@ -102,16 +101,17 @@
           <div class="col-md-3 mb-4">
             <a class="mb-4 d-block" href="index.html">
               <img
-                class="img-fluid"
+                class="img-fluid logo"
                 width="150px"
-                src="{% static 'images/logo.png' %}"
+                src="{% static 'images/logo.svg' %}"
                 alt="LogBook"
               />
             </a>
             <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua.
+              Welcome to Book Info, your ultimate destination for captivating
+              book reviews and soul-stirring literary quotes. We are thrilled to
+              have you here in our cozy corner of the internet, where the magic
+              of storytelling comes alive!
             </p>
           </div>
 
@@ -119,9 +119,11 @@
             <h6 class="mb-4">Quick Links</h6>
             <ul class="list-unstyled footer-list">
               <li><a href="{% url 'about' %}">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="privacy-policy.html">Privacy Policy</a></li>
-              <li><a href="terms-conditions.html">Terms Conditions</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
+              <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
+              <li>
+                <a href="{% url 'terms-conditions' %}">Terms Conditions</a>
+              </li>
             </ul>
           </div>
 
@@ -136,7 +138,7 @@
           </div>
 
           <div class="col-md-3 mb-4">
-            <h6 class="mb-4">Subscribe Newsletter</h6>
+            <!-- <h6 class="mb-4">Subscribe Newsletter</h6>
             <form
               class="subscription"
               action="javascript:void(0)"
@@ -153,13 +155,13 @@
               <button class="btn btn-primary btn-block rounded" type="submit">
                 Subscribe now
               </button>
-            </form>
+            </form> -->
           </div>
         </div>
         <div class="text-center">
           <p class="content">
-            &copy; 2020 - Design &amp; Develop By
-            <a href="https://themefisher.com/" target="_blank">Themefisher</a>
+            &copy; 2023 - Design &amp; Develop By
+            <a href="https://themefisher.com/" target="_blank">Prudhvi K</a>
           </p>
         </div>
       </div>

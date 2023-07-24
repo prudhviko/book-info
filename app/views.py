@@ -26,3 +26,11 @@ def single(request, slug):
     book = Book.objects.get(slug=slug)
     context = {'book': book}
     return render(request, 'single.html', context)
+
+
+def privacypolicy(request):
+    return render(request, 'privacy-policy.html')
+
+
+def termsconditions(request):
+    return render(request, 'terms-conditions.html')
