@@ -27,7 +27,7 @@ def contact(request):
 def single(request, slug):
     book = Book.objects.get(slug=slug)
     context = {'book': book}
-    return render(request, 'single.html', context)
+    return render(request, 'post.html', context)
 
 
 def privacypolicy(request):
