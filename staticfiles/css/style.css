@@ -928,5 +928,14 @@ a:hover {
   line-height: 50px;
   display: block;
 }
-
+.about {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+.bi-wishes {
+  font-weight: bold;
+}
+.bi-about {
+  font-size: 24px;
+}
 /*# sourceMappingURL=style.css.map */

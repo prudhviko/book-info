@@ -3,13 +3,13 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mb-5 mb-lg-0">
-        {% for book in books %}
+        {% for item in paginated_data %}
         <article class="row mb-5">
           <div class="col-12">
             <div class="post-slider">
               <img
                 loading="lazy"
-                src="{{book.image.url}}"
+                src="{{item.image.url}}"
                 class="img-fluid"
                 alt="post-thumb"
               />
@@ -17,16 +17,14 @@
           </div>
           <div class="col-12 mx-auto">
             <h3>
-              <a class="post-title" href="post-elements.html"
-                >{{ book.title }}</a
-              >
+              <a class="post-title" href="{% url 'home' %}">{{ item.title }}</a>
             </h3>
             <ul class="list-inline post-meta mb-4">
-              <li class="list-inline-item">Date : {{book.created_at}}</li>
+              <li class="list-inline-item">Date : {{item.created_at}}</li>
             </ul>
-            <p>{{ book.description | safe | truncatechars:200 }}</p>
+            <p>{{ item.description | safe | truncatechars:200 }}</p>
             <a
-              href="{%url 'details' slug=book.slug %}"
+              href="{%url 'details' post_id=item.id slug=item.slug %}"
               class="btn btn-outline-primary"
               >Continue Reading</a
             >

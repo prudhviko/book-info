@@ -8,7 +8,7 @@
             <div class="post-slider">
               <img
                 loading="lazy"
-                src="{{book.image.url}}"
+                src="{{post.image.url}}"
                 class="img-fluid"
                 alt="post-thumb"
               />
@@ -17,15 +17,27 @@
           <div class="col-12 mx-auto">
             <h3>
               <a class="post-title" href="post-elements.html"
-                >{{ book.title }}</a
+                >{{ post.title }}</a
               >
             </h3>
             <ul class="list-inline post-meta mb-4">
-              <li class="list-inline-item">Date : {{book.created_at}}</li>
+              <li class="list-inline-item">Date : {{post.created_at}}</li>
             </ul>
-            <p>{{ book.description | safe }}</p>
+            <p>{{ post.description | safe }}</p>
           </div>
         </article>
+        {% if previous_post %}
+        <a
+          href="{% url 'details' post_id=previous_post.id slug=previous_post.slug %}"
+          >Previous Post</a
+        >
+        {% endif %} {% if next_post %}
+        <a
+          href="{% url 'details' post_id=next_post.id slug=next_post.slug %}"
+          style="float: right"
+          >Next Post</a
+        >
+        {% endif %}
       </div>
     </div>
   </div>
