@@ -22,19 +22,29 @@ class Book(models.Model):
         ordering = ['-created_at']
 
 
-class Category(models.Model):
+class Author(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
 
+class Category(models.Model):
+    categoryName = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.categoryName
+
+
 class Quote(models.Model):
     image = models.ImageField(upload_to='quotes/')
-    category = models.ForeignKey(
-        Category, on_delete=models.SET_NULL, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, default='Motivational', null=True)
 
     class Meta:
         ordering = ['-created_at']
+
+    def __str__(self):
+        return self.title
