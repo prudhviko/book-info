@@ -14,7 +14,7 @@ load_dotenv()
 SECRET_KEY = 'django-insecure--nxm0r8_(m!5cp&eihh^1^n]ru$z$xj9-wf%6d]1crnbw7bf*z'
 
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -78,9 +78,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'GNCaAFVN3URQcckAcd3V',
-        'HOST': 'containers-us-west-160.railway.app',
-        'PORT': '6319'
+        'PASSWORD': 'H5oEi8QCXyTwAEc65N51',
+        'HOST': 'containers-us-west-173.railway.app',
+        'PORT': '7129'
     }
 }
 

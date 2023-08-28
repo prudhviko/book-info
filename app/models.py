@@ -8,6 +8,7 @@ class Book(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    url = models.CharField(max_length=200)
     description = HTMLField()
     image = models.ImageField(upload_to='images/')
 
@@ -29,7 +30,7 @@ class Author(models.Model):
         return self.name
 
 
-class Category(models.Model):
+class QuotesCategory(models.Model):
     categoryName = models.CharField(max_length=256)
 
     def __str__(self):
@@ -41,10 +42,7 @@ class Quote(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(
-        Category, on_delete=models.CASCADE, default='Motivational', null=True)
+        QuotesCategory, on_delete=models.CASCADE, default='Motivational', null=True)
 
     class Meta:
         ordering = ['-created_at']
-
-    def __str__(self):
-        return self.title
