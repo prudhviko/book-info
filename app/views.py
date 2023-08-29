@@ -33,7 +33,7 @@ def contact(request):
     return render(request, 'contactus.html')
 
 
-def single(request, post_id, slug):
+def details(request, post_id, slug):
     current_post = get_object_or_404(Book, id=post_id)
     previous_post = Book.objects.filter(id__lt=post_id).order_by('-id').first()
     next_post = Book.objects.filter(id__gt=post_id).order_by('id').first()
