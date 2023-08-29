@@ -1,6 +1,7 @@
 from django.db import models
 from tinymce.models import HTMLField
 from django.utils.text import slugify
+from tinymce.widgets import TinyMCE
 
 
 class Book(models.Model):
@@ -8,7 +9,6 @@ class Book(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    url = models.CharField(max_length=200)
     description = HTMLField()
     image = models.ImageField(upload_to='images/')
 

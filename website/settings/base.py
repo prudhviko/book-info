@@ -78,12 +78,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'H5oEi8QCXyTwAEc65N51',
-        'HOST': 'containers-us-west-173.railway.app',
-        'PORT': '7129'
+        'PASSWORD': 'JYf9GkrY6w2NyYNdmPud',
+        'HOST': 'containers-us-west-36.railway.app',
+        'PORT': '7092'
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -133,3 +132,7 @@ AWS_DEFAULT_ACL = 'public-read'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TINYMCE_DEFAULT_CONFIG = {
+    "plugins": "advlist,autolink,lists,link,image,charmap,print,preview,anchor,searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,",
+}

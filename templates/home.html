@@ -17,7 +17,11 @@
           </div>
           <div class="col-12 mx-auto">
             <h3>
-              <a class="post-title" href="{% url 'home' %}">{{ item.title }}</a>
+              <a
+                class="post-title"
+                href="{%url 'details' post_id=item.id slug=item.slug %}"
+                >{{ item.title | safe }}</a
+              >
             </h3>
             <ul class="list-inline post-meta mb-4">
               <li class="list-inline-item">Date : {{item.created_at}}</li>
@@ -27,13 +31,6 @@
               href="{%url 'details' post_id=item.id slug=item.slug %}"
               class="btn btn-outline-primary"
               >Continue Reading</a
-            >
-
-            <a
-              style="float: right"
-              href="{%url 'details' post_id=item.id slug=item.slug %}"
-              class="btn btn-outline-primary"
-              >Buy Book On Amazon</a
             >
           </div>
         </article>

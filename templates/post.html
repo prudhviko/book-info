@@ -17,14 +17,13 @@
           <div class="col-12 mx-auto">
             <h3>
               <a class="post-title" href="post-elements.html"
-                >{{ post.title }}</a
+                >{{ post.title| safe }}</a
               >
             </h3>
             <ul class="list-inline post-meta mb-4">
               <li class="list-inline-item">Date : {{post.created_at}}</li>
             </ul>
             <p>{{ post.description | safe }}</p>
-            <a href="#" class="btn btn-outline-primary">Buy Book On Amazon</a>
           </div>
         </article>
         {% if previous_post %}
