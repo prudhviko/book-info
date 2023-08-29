@@ -1,0 +1,19 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /logout/
+Disallow: /private/
+
+User-agent: Googlebot
+Allow: /admin/
+Allow: /static/
+Allow: /media/
+Disallow: /private/
+
+User-agent: Bingbot
+Allow: /admin/
+Allow: /static/
+Allow: /media/
+Disallow: /private/
+
+Sitemap: https://www.thebookinfo.com/sitemap.xml
