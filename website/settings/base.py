@@ -14,6 +14,8 @@ load_dotenv()
 SECRET_KEY = 'django-insecure--nxm0r8_(m!5cp&eihh^1^n]ru$z$xj9-wf%6d]1crnbw7bf*z'
 
 
+SITE_ID = 1
+
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
@@ -27,7 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'tinymce'
+    'tinymce',
+    'django.contrib.sites',
+    'django.contrib.sitemaps'
 ]
 
 MIDDLEWARE = [

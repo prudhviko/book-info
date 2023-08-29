@@ -19,6 +19,9 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return f'/{self.id}{self.slug}/'
+
     class Meta:
         ordering = ['-created_at']
 
