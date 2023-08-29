@@ -2,6 +2,7 @@ from django.db import models
 from tinymce.models import HTMLField
 from django.utils.text import slugify
 from tinymce.widgets import TinyMCE
+from django.urls import reverse
 
 
 class Book(models.Model):
@@ -20,7 +21,7 @@ class Book(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return f'/{self.id}{self.slug}/'
+        return reverse('details', args=[self.id, self.slug])
 
     class Meta:
         ordering = ['-created_at']

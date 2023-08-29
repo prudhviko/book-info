@@ -7,7 +7,7 @@ from django.contrib.sitemaps.views import sitemap
 
 sitemaps = {
     'static': StaticViewSitemap,
-    'snippet': BookSitemap
+    'book': BookSitemap
 }
 
 
