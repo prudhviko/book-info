@@ -16,13 +16,13 @@
             </div>
           </div>
           <div class="col-12 mx-auto">
-            <h3>
+            <h1>
               <a
                 class="post-title"
                 href="{%url 'details' post_id=item.id slug=item.slug %}"
                 >{{ item.title | safe }}</a
               >
-            </h3>
+            </h1>
             <ul class="list-inline post-meta mb-4">
               <li class="list-inline-item">Date : {{item.created_at}}</li>
             </ul>
