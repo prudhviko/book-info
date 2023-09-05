@@ -15,7 +15,7 @@
         <div class="card-footer">
           <ul>
             <li>{% post_to_facebook request.get_full_path "Share on Facebook!" %}</li>
-            <li>{% post_to_twitter request.get_full_path "Your site title" object.text "Share on Twitter!" %}</li>
+            <li>{% post_to_twitter request.get_full_path "Share on Twitter!" %}</li>
             <li>{% post_to_whatsapp object_or_url "Share via WhatsApp" %}</li>
           </ul>
         </div>
