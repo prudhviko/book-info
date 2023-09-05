@@ -21,7 +21,12 @@ def home(request):
 
 def quotes(request):
     quotes = Quote.objects.all()
-    context = {'quotes': quotes}
+    paginator = Paginator(quotes, 15)
+    page = request.GET.get('page')
+    objects = paginator.get_page(page)
+    context = {
+        'objects': objects
+    }
     return render(request, 'quotes.html', context)
 
 

@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'tinymce',
+    'django_social_share',
     'django.contrib.sites',
     'django.contrib.sitemaps'
 ]

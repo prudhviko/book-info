@@ -1,15 +1,24 @@
-{% extends 'base.html' %}{% block content %}
+{% extends 'base.html' %}
+{% load social_share %}
+{% block content %}
 <section class="section">
   <div class="container">
     <div class="row mb-4">
-      {% for quote in quotes %}
+      {% for object in objects %}
       <div class="col-md-4 mb-4">
         <div class="card">
           <img
-            src="{{ quote.image.url }}"
+            src="{{ object.image.url }}"
             class="card-img-top img-fluid"
             alt="Card Image"
           />
+        <div class="card-footer">
+          <ul>
+            <li>{% post_to_facebook request.get_full_path "Share on Facebook!" %}</li>
+            <li>{% post_to_twitter request.get_full_path "Your site title" object.text "Share on Twitter!" %}</li>
+            <li>{% post_to_whatsapp object_or_url "Share via WhatsApp" %}</li>
+          </ul>
+        </div>
         </div>
         <!--card ending tag-->
       </div>
@@ -17,6 +26,41 @@
       <!--column ending tag-->
     </div>
     <!--row ending tag-->
+    <div class="row mb-4">
+      <div class="col-sm-12 mb-4">
+        <nav aria-label="bookinfo-navigation">
+          <ul class="pagination pagination-sm justify-content-center">
+            {% if objects.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page=1" aria-label="First">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            {% endif %}
+            {% for i in objects.paginator.page_range %}
+            {% if objects.number == i %}
+            <li class="page-item active">
+              <span class="page-link"
+                >{{ i }}<span class="sr-only">(current)</span></span
+              >
+            </li>
+            {% else %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% if objects.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ objects.paginator.num_pages }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+         {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </div>
   </div>
   <!--container ending tag -->
 </section>
