@@ -67,17 +67,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'website.wsgi.application'
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ['PGDATABASE'],
+#         'USER': os.environ['PGUSER'],
+#         'PASSWORD': os.environ['PGPASSWORD'],
+#         'HOST': os.environ['PGHOST'],
+#         'PORT': os.environ['PGPORT']
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['PGDATABASE'],
-        'USER': os.environ['PGUSER'],
-        'PASSWORD': os.environ['PGPASSWORD'],
-        'HOST': os.environ['PGHOST'],
-        'PORT': os.environ['PGPORT']
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'JYf9GkrY6w2NyYNdmPud',
+        'HOST': 'containers-us-west-36.railway.app',
+        'PORT': '7092'
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -112,13 +122,19 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
-AWS_DEFAULT_ACL = os.environ['AWS_DEFAULT_ACL']
-DEFAULT_FILE_STORAGE = os.environ['DEFAULT_FILE_STORAGE']
+# AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+# AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+# AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+# AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
+# AWS_DEFAULT_ACL = os.environ['AWS_DEFAULT_ACL']
+# DEFAULT_FILE_STORAGE = os.environ['DEFAULT_FILE_STORAGE']
 
+AWS_ACCESS_KEY_ID = 'AKIAXPZBQGU33FLEYPTR'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'book-info'
+AWS_S3_REGION_NAME = 'us-east-1'
+AWS_DEFAULT_ACL = 'public-read'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
