@@ -1087,7 +1087,9 @@ a:hover {
 }
 
 .pagination {
+  display: flex;
   flex-wrap: wrap;
+  gap: 4px;
 }
 
 /*# sourceMappingURL=style.css.map */
