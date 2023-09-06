@@ -9,10 +9,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
-load_dotenv()
-
-
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'django-insecure--nxm0r8_(m!5cp & eihh ^ 1 ^ n)ru$z$xj9-wf % 6d)1crnbw7bf*z'
 
 
 SITE_ID = 1
