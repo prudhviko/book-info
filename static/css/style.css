@@ -1086,4 +1086,8 @@ a:hover {
   /* Darker color on hover */
 }
 
+.pagination {
+  flex-wrap: wrap;
+}
+
 /*# sourceMappingURL=style.css.map */
