@@ -5,6 +5,7 @@ from django.urls import path, include
 from app.sitemap import StaticViewSitemap, BookSitemap
 from django.contrib.sitemaps.views import sitemap
 
+handler404 = 'app.views.custom_404'
 sitemaps = {
     'static': StaticViewSitemap,
     'book': BookSitemap

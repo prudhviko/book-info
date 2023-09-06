@@ -3,6 +3,12 @@ from django.http import request
 from .models import Book, Quote
 from django.utils.text import slugify
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
+from django.http import HttpResponseNotFound
+
+
+def custom_404(request, exception):
+    return render(request, "404.html", status=404)
 
 
 def home(request):
