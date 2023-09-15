@@ -1088,8 +1088,6 @@ a:hover {
 
 .pagination {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap !important;
   gap: 4px;
 }
-
-/*# sourceMappingURL=style.css.map */
