@@ -14,7 +14,7 @@ class StaticViewSitemap(Sitemap):
 
 
 class BookSitemap(Sitemap):
-    changefreq = 'daily'
+    changefreq = 'Hourly'
     priority = 0.8
 
     def items(self):
