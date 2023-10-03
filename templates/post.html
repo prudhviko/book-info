@@ -1,42 +1,19 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        <article class="row mb-5">
-          <div class="col-12">
-            <div class="post-slider">
-              <img
-                loading="lazy"
-                src="{{post.image.url}}"
-                class="img-fluid"
-                alt="post-thumb"
-              />
-            </div>
-          </div>
-          <div class="col-12 mx-auto">
-            <h1>
-              <a class="post-title" href="post-elements.html"
-                >{{ post.title | safe}}</a
-              >
-            </h1>
-            <ul class="list-inline post-meta mb-4">
-              <li class="list-inline-item">Date : {{post.created_at}}</li>
-            </ul>
-            <p>{{ post.description | safe }}</p>
-          </div>
+<section class="content my-5">
+  <div class="container justify-content-center align-items-center">
+    <div class="row d-flex flex-column">
+      <div class="col">
+        <article class="article mb-4">
+          <img loading="lazy" src="{{post.image.url}}" class="img-fluid" />
+          <h1 class="post-title">
+            {{ post.title | safe}}
+          </h1>
+          <p class="post-content">{{ post.description | safe }}</p>
         </article>
         {% if previous_post %}
-        <a
-          href="{% url 'details' post_id=previous_post.id slug=previous_post.slug %}"
-          >Previous Post</a
-        >
+        <a href="{% url 'details' post_id=previous_post.id slug=previous_post.slug %}">Previous Post</a>
         {% endif %} {% if next_post %}
-        <a
-          href="{% url 'details' post_id=next_post.id slug=next_post.slug %}"
-          style="float: right"
-          >Next Post</a
-        >
+        <a href="{% url 'details' post_id=next_post.id slug=next_post.slug %}" style="float: right">Next Post</a>
         {% endif %}
       </div>
     </div>

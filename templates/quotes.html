@@ -1,63 +1,76 @@
 {% extends 'base.html' %}
 {% load social_share %}
 {% block content %}
-<section class="section">
-  <div class="container">
-    <div class="row mb-4">
-      {% for object in objects %}
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img
-            src="{{ object.image.url }}"
-            class="card-img-top img-fluid"
-            alt="Card Image"
-          />
-        <!-- <div class="card-footer"> -->
-         <!-- <h1>Prudhvi Kovagana</h1> -->
-        <!-- </div> -->
+<section class="main">
+    <div class="container-fluid">
+        <div class="row gy-4">
+            <div class="col-md-2">
+                <div class="sidebar d-flex flex-column justify-content-center align-items-center shadow-lg">
+                    <div class="widget">
+                        <h5 class="widget-title py-3">Categories</h5>
+                        <ul class="list-unstyled widget-list">
+                            <li class="py-3"><a href="#!">Four seasone</a>
+                            </li>
+                            <li class="py-3"><a href="#!">Newyork city</a>
+                            </li>
+                            <li class="py-3"><a href="#!">Photobooth</a>
+                            </li>
+                            <li class="py-3"><a href="#!">Photography</a>
+                            </li>
+                            <li class="py-3"><a href="#!">Videography</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="row gy-4">
+                    {% for object in objects %}
+                    <div class="col-md-6">
+                        <div class="quote d-flex flex-column">
+                            <div class="card">
+                                <img class="img-fluid image-responsive" src="{{object.image.url}}" />
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-        <!--card ending tag-->
-      </div>
-      {% endfor %}
-      <!--column ending tag-->
     </div>
-    <!--row ending tag-->
-    <div class="row mb-4">
-      <div class="col-sm-12 mb-4">
-        <nav aria-label="bookinfo-navigation">
-          <ul class="pagination pagination-sm justify-content-center">
-            {% if objects.has_previous %}
-            <li class="page-item">
-              <a class="page-link" href="?page=1" aria-label="First">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            {% endif %}
-            {% for i in objects.paginator.page_range %}
-            {% if objects.number == i %}
-            <li class="page-item active">
-              <span class="page-link"
-                >{{ i }}<span class="sr-only">(current)</span></span
-              >
-            </li>
-            {% else %}
-            <li class="page-item">
-              <a class="page-link" href="?page={{ i }}">{{ i }}</a>
-            </li>
-            {% endif %}
-            {% endfor %}
-            {% if objects.has_next %}
-          <li class="page-item">
-            <a class="page-link" href="?page={{ objects.paginator.num_pages }}" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-         {% endif %}
-          </ul>
-        </nav>
-      </div>
+    <div class="row mt-4">
+        <div class="col-sm-12">
+            <nav aria-label="bookinfo-navigation">
+                <ul class="pagination pagination-sm justify-content-center">
+                    {% if objects.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1" aria-label="First">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% for i in objects.paginator.page_range %}
+                    {% if objects.number == i %}
+                    <li class="page-item active">
+                        <span class="page-link">{{ i }}</span>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if objects.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ objects.paginator.num_pages }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
     </div>
-  </div>
-  <!--container ending tag -->
+    </div>
 </section>
 {% endblock %}

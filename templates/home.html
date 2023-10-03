@@ -1,126 +1,39 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        {% for item in paginated_data %}
-        <article class="row mb-5">
-          <div class="col-12">
-            <div class="post-slider">
-              <img
-                loading="lazy"
-                src="{{item.image.url}}"
-                class="img-fluid"
-                alt="post-thumb"
-              />
-            </div>
-          </div>
-          <div class="col-12 mx-auto">
-            <h1>
-              <a
+<section class="masthead">
+        <div class="container-fluid justify-content-center align-items-center">
+            <h1 class="masthead-header mb-4">Welcome To Book Info</h1>
+            <p class="masthead-caption">your ultimate destination for captivating book summaires and soul-stirring
+                literary quotes. We are thrilled to have you here in our cozy corner of the internet, where the magic of
+                storytelling comes alive!</p>
+        </div>
+</section>
+
+ <section class="main">
+        <div class="container-fluid">
+            <div class="row gy-4">
+               {% for item in paginated_data %}
+               <div class="col-12 col-sm-6 col-md-4 col-lg-4" data-aos="fade-up" data-aos-duration="1000"
+                    data-aos-easing="ease-in-out">
+                    <div class="post d-flex flex-column">
+                        <div class="card">
+                            <img class="img-fluid image-responsive"
+                                src="{{item.image.url}}" />
+                            <div class="card-footer">
+                                 <h2>
+                                     <a
                 class="post-title"
                 href="{%url 'details' post_id=item.id slug=item.slug %}"
                 >{{ item.title | safe }}</a
               >
-            </h1>
-            <ul class="list-inline post-meta mb-4">
-              <li class="list-inline-item">Date : {{item.created_at}}</li>
-            </ul>
-            <p>{{ item.description | safe | truncatechars:400 }}</p>
-            <a
-              href="{%url 'details' post_id=item.id slug=item.slug %}"
-              class="btn btn-outline-primary"
-              >Continue Reading</a
-            >
-          </div>
-        </article>
-        {% endfor %}
-      </div>
-      <!-- <aside class="col-lg-4"> -->
-      <!-- Search -->
-      <!-- <div class="widget"> -->
-      <!-- <h5 class="widget-title"><span>Search</span></h5> -->
-      <!-- <form action="/logbook-hugo/search" class="widget-search"> -->
-      <!-- <input
-              id="search-query"
-              name="s"
-              type="search"
-              placeholder="Type &amp; Hit Enter..."
-            /> -->
-      <!-- <button type="submit"><i class="ti-search"></i></button> -->
-      <!-- </form> -->
-      <!-- </div> -->
-      <!-- categories -->
-      <!-- <div class="widget">
-          <h5 class="widget-title"><span>Categories</span></h5>
-          <ul class="list-unstyled widget-list">
-            <li>
-              <a href="#!" class="d-flex"
-                >Four seasone <small class="ml-auto">(1)</small></a
-              >
-            </li>
-            <li>
-              <a href="#!" class="d-flex"
-                >Newyork city <small class="ml-auto">(2)</small></a
-              >
-            </li>
-            <li>
-              <a href="#!" class="d-flex"
-                >Photobooth <small class="ml-auto">(1)</small></a
-              >
-            </li>
-            <li>
-              <a href="#!" class="d-flex"
-                >Photography <small class="ml-auto">(2)</small></a
-              >
-            </li>
-            <li>
-              <a href="#!" class="d-flex"
-                >Videography <small class="ml-auto">(1)</small></a
-              >
-            </li>
-          </ul>
-        </div> -->
-      <!-- tags -->
-      <!-- <div class="widget">
-          <h5 class="widget-title"><span>Tags</span></h5>
-          <ul class="list-inline widget-list-inline">
-            <li class="list-inline-item"><a href="#!">Booth</a></li>
-            <li class="list-inline-item"><a href="#!">City</a></li>
-            <li class="list-inline-item"><a href="#!">Image</a></li>
-            <li class="list-inline-item"><a href="#!">New</a></li>
-            <li class="list-inline-item"><a href="#!">Photo</a></li>
-            <li class="list-inline-item"><a href="#!">Seasone</a></li>
-            <li class="list-inline-item"><a href="#!">Video</a></li>
-          </ul>
-        </div> -->
-      <!-- latest post -->
-      <!-- <div class="widget">
-          <h5 class="widget-title"><span>Latest Articles</span></h5> -->
-      <!-- post-item -->
-      <!-- <ul class="list-unstyled widget-list">
-            <li class="media widget-post align-items-center">
-              <a href="post-elements.html">
-                <img
-                  loading="lazy"
-                  class="mr-3"
-                  src="{% static 'images/post/post.svg' %}"
-                />
-              </a>
-              <div class="media-body">
-                <h5 class="h6 mb-0">
-                  <a href="post-elements.html"
-                    >Elements That You Can Use To Create A New Post On This
-                    Template.</a
-                  >
-                </h5>
-                <small>March 15, 2020</small>
-              </div>
-            </li>
-          </ul> -->
-      <!-- </div> -->
-      <!-- </aside> -->
-    </div>
-  </div>
-</section>
+            </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               {% endfor %}
+            </div>
+        </div>
+ </section>
+
+
 {% endblock %}
