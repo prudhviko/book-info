@@ -22,7 +22,7 @@ def home(request):
     except EmptyPage:
         paginated_data = paginator.page(paginator.num_pages)
 
-    return render(request, 'home.html', {'paginated_data': queryset})
+    return render(request, 'home.html', {'paginated_data': paginated_data})
 
 
 def quotes(request):
