@@ -53,6 +53,8 @@ def details(request, post_id, slug):
         'post': current_post,
         'previous_post': previous_post,
         'next_post': next_post,
+        'meta_title': current_post.meta_title,
+        'meta_description': current_post.meta_description
     }
 
     return render(request, 'post.html', context)

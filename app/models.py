@@ -8,10 +8,14 @@ from django.urls import reverse
 class Book(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True,null=True)
+    description = HTMLField()
+    alt = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='images/')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    description = HTMLField()
-    image = models.ImageField(upload_to='images/')
+    
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
@@ -43,10 +47,13 @@ class QuotesCategory(models.Model):
 
 class Quote(models.Model):
     image = models.ImageField(upload_to='quotes/')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    text = models.TextField()
+    meta_title = models.CharField(max_length=60, blank=True, null=True)
+    meta_description = models.CharField(max_length=160, blank=True,null=True)
     category = models.ForeignKey(
         QuotesCategory, on_delete=models.CASCADE, default='Motivational', null=True)
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
     class Meta:
         ordering = ['-created_at']

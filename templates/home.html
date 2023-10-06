@@ -1,39 +1,47 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <section class="masthead">
-        <div class="container-fluid justify-content-center align-items-center">
-            <h1 class="masthead-header mb-4">Welcome To Book Info</h1>
-            <p class="masthead-caption">your ultimate destination for captivating book summaires and soul-stirring
-                literary quotes. We are thrilled to have you here in our cozy corner of the internet, where the magic of
-                storytelling comes alive!</p>
-        </div>
+    <div class="container-fluid justify-content-center align-items-center">
+        <h1 class="masthead-header mb-4">Welcome To Book Info</h1>
+        <p class="masthead-caption">your ultimate destination for captivating book summaires,book recommendations and
+            soul-stirring
+            literary quotes. We are thrilled to have you here in our cozy corner of the internet, where the magic of
+            storytelling comes alive!</p>
+    </div>
 </section>
 
- <section class="main">
-        <div class="container-fluid">
-            <div class="row gy-4">
-               {% for item in paginated_data %}
-               <div class="col-12 col-sm-6 col-md-4 col-lg-4" data-aos="fade-up" data-aos-duration="1000"
-                    data-aos-easing="ease-in-out">
-                    <div class="post d-flex flex-column">
-                        <div class="card">
-                            <img class="img-fluid image-responsive"
-                                src="{{item.image.url}}" />
-                            <div class="card-footer">
-                                 <h2>
-                                     <a
-                class="post-title"
-                href="{%url 'details' post_id=item.id slug=item.slug %}"
-                >{{ item.title | safe }}</a
-              >
-            </h2>
+<section class="main">
+    <div class="container-fluid">
+        <div class="row">
+
+            {% for item in paginated_data %}
+            <div class="col-10 mx-auto" data-aos="fade-left" data-aos-duration="1500" data-aos-easing="ease-in-out">
+                <div class="container py-2">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-5 card-intro">
+                                <img src="{{item.image.url}}" />
                             </div>
+                            <div class="col-md-7">
+                                <div class="card-block px-3">
+                                    <a href="{% url 'details' item.pk item.slug %}">
+                                        <h2 class="card-title py-3">{{ item.title }}</h2>
+                                    </a>
+                                    <p class="card-text">{{item.description | safe | truncatechars:150 }}</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-               {% endfor %}
             </div>
+            {% endfor %}
+
+
+
+
         </div>
- </section>
+    </div>
+</section>
 
 
 {% endblock %}

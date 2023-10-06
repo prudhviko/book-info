@@ -1,14 +1,14 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <section class="content my-5">
-  <div class="container justify-content-center align-items-center">
-    <div class="row d-flex flex-column">
-      <div class="col">
+  <div class="container">
+    <div class="row d-flex flex-column justify-content-center align-items-center">
+      <div class="col-8 m-auto">
         <article class="article mb-4">
-          <img loading="lazy" src="{{post.image.url}}" class="img-fluid" />
-          <h1 class="post-title">
+          <h1 class="post-title my-4">
             {{ post.title | safe}}
           </h1>
-          <p class="post-content">{{ post.description | safe }}</p>
+          <img loading="lazy" src="{{post.image.url}}" class="img-fluid w-100" />
+          {{ post.description | safe }}
         </article>
         {% if previous_post %}
         <a href="{% url 'details' post_id=previous_post.id slug=previous_post.slug %}">Previous Post</a>
