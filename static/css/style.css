@@ -21,10 +21,6 @@ time, mark, audio, video {
     font-family: 'Nanum Gothic', sans-serif;
 }
 
-*{
-    width: 100vw !important;
-    box-sizing: border-box !important;
-}
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
