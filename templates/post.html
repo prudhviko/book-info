@@ -2,7 +2,7 @@
 <section class="content my-5">
   <div class="container">
     <div class="row d-flex flex-column justify-content-center align-items-center">
-      <div class="col-12 col-sm-12 col-md-8 m-auto">
+      <div class="col-12">
         <article class="article mb-4">
           <h1 class="post-title my-4">
             {{ post.title | safe}}
@@ -11,9 +11,12 @@
           {{ post.description | safe }}
         </article>
         {% if previous_post %}
-        <a href="{% url 'details' post_id=previous_post.id slug=previous_post.slug %}">Previous Post</a>
+        <a href="{% url 'details' post_id=previous_post.id slug=previous_post.slug %}"
+          class="btn btn-primary rounded-0">Previous Post</a>
+
         {% endif %} {% if next_post %}
-        <a href="{% url 'details' post_id=next_post.id slug=next_post.slug %}" style="float: right">Next Post</a>
+        <a href="{% url 'details' post_id=next_post.id slug=next_post.slug %}" style="float: right"
+          class="btn btn-primary rounded-0">Next Post</a>
         {% endif %}
       </div>
     </div>

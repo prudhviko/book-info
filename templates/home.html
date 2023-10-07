@@ -14,31 +14,36 @@
         <div class="row">
 
             {% for item in paginated_data %}
-            <div class="col-12 col-sm-12 col-md-8 mx-auto" data-aos="fade-left" data-aos-duration="1500"
-                data-aos-easing="ease-in-out">
+            <div class="col-12" data-aos="fade-left" data-aos-duration="1500" data-aos-easing="ease-in-out">
                 <div class="container py-2">
-                    <div class="card">
+                    <div class="card w-100">
+                        <img src="{{item.image.url}}" class="img-fluid" alt="{{item.alt}}">
+                        <div class="card-body">
+                            <h2 class="card-title">{{item.title}}</h2>
+                            <p class="card-text">{{item.description | safe | truncatechars:250}}</p>
+                            <br />
+                            <a href="{% url 'details' item.pk item.slug %}" class="btn btn-primary rounded-0">Read
+                                More</a>
+                        </div>
+                    </div>
+                    <!-- <div class="card">
                         <div class="row">
                             <div class="col-md-5 card-intro">
                                 <img src="{{item.image.url}}" />
                             </div>
                             <div class="col-md-7">
                                 <div class="card-block px-3">
-                                    <a href="{% url 'details' item.pk item.slug %}">
-                                        <h2 class="card-title py-3">{{ item.title }}</h2>
-                                    </a>
-                                    <p class="card-text">{{item.description | safe | truncatechars:150 }}</p>
+
+                                    <h2 class="card-title py-3">{{ item.title }}</h2>
+                                    <a href="{% url 'details' item.pk item.slug %}" <button class="btn btn-success">Read
+                                        More</button></a>
                                 </div>
                             </div>
-
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             {% endfor %}
-
-
-
 
         </div>
     </div>

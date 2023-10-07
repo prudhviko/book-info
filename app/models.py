@@ -51,7 +51,9 @@ class Quote(models.Model):
     meta_title = models.CharField(max_length=60, blank=True, null=True)
     meta_description = models.CharField(max_length=160, blank=True,null=True)
     category = models.ForeignKey(
-        QuotesCategory, on_delete=models.CASCADE, default='Motivational', null=True)
+        QuotesCategory, on_delete=models.CASCADE, default='Motivational', null=True)  
+    author = models.ForeignKey(
+        Author, on_delete=models.CASCADE, default='Steve Jobs', null=True) 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

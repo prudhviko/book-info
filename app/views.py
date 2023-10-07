@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import request
-from .models import Book, Quote
+from .models import Book, Quote,QuotesCategory
 from django.utils.text import slugify
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
@@ -28,10 +28,12 @@ def home(request):
 def quotes(request):
     quotes = Quote.objects.all()
     paginator = Paginator(quotes, 15)
+    categories = QuotesCategory.objects.all()
     page = request.GET.get('page')
     objects = paginator.get_page(page)
     context = {
-        'objects': objects
+        'objects': objects,
+        'categories': categories
     }
     return render(request, 'quotes.html', context)
 
@@ -58,6 +60,22 @@ def details(request, post_id, slug):
     }
 
     return render(request, 'post.html', context)
+
+
+
+def quotes_by_category(request, category_id):
+    category = QuotesCategory.objects.get(id=category_id)
+    quotes = Quote.objects.filter(category=category)   
+    paginator = Paginator(quotes,15)
+    page = request.GET.get('page')
+    objects = paginator.get_page(page) 
+    categories = QuotesCategory.objects.all()
+    context = {
+        'objects': objects,
+        'categories': categories
+    }
+
+    return render(request, 'quotes_by_category.html',context)
 
 
 def privacypolicy(request):

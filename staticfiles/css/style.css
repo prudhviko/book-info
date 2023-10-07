@@ -84,12 +84,19 @@ table {
 }
 h1 {
     font-size: 40px;
+    color: blue;
 }
   
 h2 {
     font-size: 30px;
+    color: blue !important;
 }
   
 p {
     font-size: 14px;
+}
+
+a{
+    text-decoration: none;
+    color: blue;
 }
