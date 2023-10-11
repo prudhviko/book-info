@@ -7,6 +7,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponseNotFound,HttpResponse
 from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactForm
+from django.views.decorators.csrf import csrf_exempt
 
 
 def custom_404(request, exception):
@@ -43,7 +44,7 @@ def quotes(request):
 def about(request):
     return render(request, 'about.html')
 
-
+@csrf_exempt
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
