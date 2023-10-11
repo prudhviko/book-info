@@ -103,6 +103,10 @@ a{
     color: blue;
 }
 
+.quotes{
+    padding: 48px !important;
+}
+
 @media (max-width: 768px) {
     .main{
         padding: 0px !important;
