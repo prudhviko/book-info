@@ -44,21 +44,25 @@ def quotes(request):
 def about(request):
     return render(request, 'about.html')
 
-@csrf_exempt
+# @csrf_exempt
 def contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            subject = 'Contact Form Submission'
-            message =  form.cleaned_data['message']
-            from_email = form.cleaned_data['email']
-            print(from_email)
-            recipient_list = ['contact@thebookinfo.com']
-            send_mail(subject, message, from_email, recipient_list, fail_silently=False)
-    else:
-        form = ContactForm()
+    # if request.method == 'POST':
+    #     form = ContactForm(request.POST)
+    #     if form.is_valid():
+    #         name = form.cleaned_data['name']
+    #         email = form.cleaned_data['email']
+    #         message = form.cleaned_data['message']
+    #         subject = f'New Contact Form Submission from {name}'
+    #         message = f'Name: {name}\nEmail: {email}\nMessage: {message}'
+    #         from_email = 'prudhvikovagana@gmail.com'  # Replace with your email
+    #         recipient_list = ['prudhvikovagana@gmail.com']  # Replace with recipient's email
 
-    return render(request, 'contactus.html', {'form': form})
+    #         send_mail(subject, message, from_email, recipient_list)
+    #         return redirect('home')
+    # else:
+    #     form = ContactForm()
+
+    return render(request, 'contactus.html')
            
 
 def details(request, post_id, slug):

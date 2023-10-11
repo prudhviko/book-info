@@ -1,13 +1,31 @@
 {% extends 'base.html' %} {% block content %}
+<section class="section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 d-flex flex-column">
+        <h1 class="fw-bold">Contact Us</h1>
+        <br />
 
+        <p>
+          Welcome to thebookinfo.com! We value your feedback, inquiries, and suggestions. Our team is here to assist
+          you in any way we can. Please feel free to get in touch with us using the contact information below.
+        </p>
+        <br />
+        <h2>Contact Information</h2>
+        <br />
+        <h2>Email:</h2>
+        <br />
+        <p>
+          If you have any questions or need assistance, please send an email to our dedicated support team at
+          contact@thebookinfo.com. We aim to respond to your inquiries within 24 hours.
+        </p>
+        <br />
+        <p>Thank you for visiting thebookinfo.com. We are committed to providing you with the best experience and
+          information related to books. Your input and engagement are highly valuable to us.</p>
+        <br />
 
-
-<h1>Contact Us</h1>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <div class="form-actions">
-    <button type="submit">Send</button>
+      </div>
+    </div>
   </div>
-</form>
+</section>
 {% endblock %}
