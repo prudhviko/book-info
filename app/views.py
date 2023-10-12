@@ -34,9 +34,13 @@ def quotes(request):
     categories = QuotesCategory.objects.all()
     page = request.GET.get('page')
     objects = paginator.get_page(page)
+    meta_title = 'Inspirational Quotes'
+    meta_description = 'Explore timeless quotes that inspire and uplift the soul. Discover wisdom in our collection.'
     context = {
         'objects': objects,
-        'categories': categories
+        'categories': categories,
+        'meta_title': meta_title,
+        'meta_description': meta_description
     }
     return render(request, 'quotes.html', context)
 
@@ -44,24 +48,7 @@ def quotes(request):
 def about(request):
     return render(request, 'about.html')
 
-# @csrf_exempt
 def contact(request):
-    # if request.method == 'POST':
-    #     form = ContactForm(request.POST)
-    #     if form.is_valid():
-    #         name = form.cleaned_data['name']
-    #         email = form.cleaned_data['email']
-    #         message = form.cleaned_data['message']
-    #         subject = f'New Contact Form Submission from {name}'
-    #         message = f'Name: {name}\nEmail: {email}\nMessage: {message}'
-    #         from_email = 'prudhvikovagana@gmail.com'  # Replace with your email
-    #         recipient_list = ['prudhvikovagana@gmail.com']  # Replace with recipient's email
-
-    #         send_mail(subject, message, from_email, recipient_list)
-    #         return redirect('home')
-    # else:
-    #     form = ContactForm()
-
     return render(request, 'contactus.html')
            
 
