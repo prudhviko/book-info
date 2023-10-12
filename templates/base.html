@@ -97,13 +97,16 @@
           <h6>QuickLinks</h6>
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link text-black" href="#">Home</a>
+              <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-black" href="#">Quotes</a>
+              <a class="nav-link" href="{% url 'quotes' %}">Quotes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-black" href="#">Services</a>
+              <a class="nav-link" href="{% url 'privacy-policy' %}">Privacy Policy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'terms-conditions' %}">Terms Conditions</a>
             </li>
           </ul>
 
