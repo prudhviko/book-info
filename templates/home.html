@@ -22,7 +22,8 @@
                             <h2 class="card-title">{{item.title}}</h2>
                             <p class="card-text">{{item.description | safe | truncatechars:250}}</p>
                             <br />
-                            <a href="{% url 'details' item.pk item.slug %}" class="btn btn-primary rounded-0">Read
+                            <a href="{% url 'details' item.pk item.slug %}"
+                                class="btn btn-primary rounded-0 text-white">Read
                                 More</a>
                         </div>
                     </div>

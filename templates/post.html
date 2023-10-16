@@ -12,11 +12,11 @@
         </article>
         {% if previous_post %}
         <a href="{% url 'details' post_id=previous_post.id slug=previous_post.slug %}"
-          class="btn btn-primary rounded-0">Previous Post</a>
+          class="btn btn-primary rounded-0 text-white">Previous Post</a>
 
         {% endif %} {% if next_post %}
         <a href="{% url 'details' post_id=next_post.id slug=next_post.slug %}" style="float: right"
-          class="btn btn-primary rounded-0">Next Post</a>
+          class="btn btn-primary rounded-0 text-white">Next Post</a>
         {% endif %}
       </div>
     </div>
