@@ -90,3 +90,6 @@ def privacypolicy(request):
 
 def termsconditions(request):
     return render(request, 'terms-conditions.html')
+
+def supportus(request):
+    return render(request, 'support-us.html')
